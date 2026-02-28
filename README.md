@@ -1,5 +1,15 @@
-Hasil Tugas 1
+## Hasil Tugas 1
 <img width="959" height="539" alt="image" src="https://github.com/user-attachments/assets/654e193a-2780-4280-85f9-825451e53fd8" />
+
+## Hasil Tugas 2
+Halaman About
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/f4639f0b-01db-4c86-9cf5-cddc4f4cd53d" />
+
+Halaman Register
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6688c7d6-fad3-4605-ae5e-e8141f148ef0" />
+
+Halaman Login
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/aa1d3dc7-adf1-4991-8dc2-c2dee44d5eb1" />
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
