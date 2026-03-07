@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name'); 
             $table->integer('qty'); 
             $table->decimal('price', 15, 2); // decimal (15 digit total, 2 digit di belakang koma)
-            // Relasi Foreign Key ke tabel users sesuai garis ERD (user_id)
+            // Relasi Foreign Key ke tabel users
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
