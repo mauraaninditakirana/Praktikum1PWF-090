@@ -1,6 +1,9 @@
 <?php
-
 namespace Database\Seeders;
+
+
+use App\Models\Kategoris;
+use App\Models\Products;
 
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -19,5 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+        Products::factory(20)->create();
+        Kategoris::factory(20)->create();
     }
 }
