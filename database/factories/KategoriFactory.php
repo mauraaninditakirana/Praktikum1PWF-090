@@ -2,31 +2,23 @@
 
 namespace Database\Factories;
 
+use App\Models\Product; 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kategori>
- */
 class KategoriFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
             'name' => $this->faker->randomElement([
-                'Electronik',
-                'Fashion', 
-                'Makanan & Minuman', 
-                'Kesehatan',
+                'Elektronik',
+                'Pakaian',
+                'Makanan',
                 'Otomotif',
                 'Perabotan',
                 'Olahraga',
-                ]),
-            'product_id' => Product::all()->random()->id,
+            ]),
+            'product_id' => Product::all()->random()->id,        
         ];
     }
 }
