@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name'); 
+            $table->integer('qty'); 
+            $table->decimal('price', 15, 2); // decimal (15 digit total, 2 digit di belakang koma)
+            // Relasi Foreign Key ke tabel users sesuai garis ERD (user_id)
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
