@@ -58,6 +58,7 @@ class ProductController extends Controller
 
         return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
+    
     public function edit(Product $product)
     {
         $users = User::orderBy('name')->get();
