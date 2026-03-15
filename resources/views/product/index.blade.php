@@ -73,6 +73,10 @@
                                         <td class="px-6 py-4 text-gray-700 dark:text-gray-200 font-mono">
                                             Rp {{ number_format($product->price, 0, ',', '.') }}
                                         </td>
+
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300">
+                                            {{ $product->user->name ?? 'No Owner' }}
+                                        </td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center justify-center gap-2">
                                                 <a href="{{ route('product.show', $product->id) }}"
