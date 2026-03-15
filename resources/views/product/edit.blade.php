@@ -6,7 +6,7 @@
 
                     {{-- Header --}}
                     <div class="flex items-center gap-3 mb-6">
-                        <a href="{{ route('product.show', $product) }}"
+                        <a href="{{ route('product.show', $product->id) }}"
                             class="p-1.5 rounded-md text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -28,7 +28,7 @@
                         @method('DELETE')
                     </form>
                     {{-- Form --}}
-                    <form action="{{ route('product.update', $product) }}" method="POST" class="space-y-5">
+                    <form action="{{ route('product.update', $product->id) }}" method="POST" class="space-y-5">
                         @csrf
                         @method('PUT')
 
@@ -52,17 +52,17 @@
                         {{-- Quantity & Price --}}
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label for="quantity"
+                                <label for="qty"
                                     class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                                     Quantity <span class="text-red-500">*</span>
                                 </label>
-                                <input type="number" id="quantity" name="quantity"
-                                    value="{{ old('quantity', $product->quantity) }}" placeholder="0" min="0"
+                                <input type="number" id="qty" name="qty"
+                                    value="{{ old('qty', $product->qty) }}" placeholder="0" min="0"
                                     class="w-full px-4 py-2.5 rounded-lg border text-sm
-                                    {{ $errors->has('quantity') ? 'border-red-400 bg-red-50 dark:bg-red-900/20' : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700' }}
+                                    {{ $errors->has('qty') ? 'border-red-400 bg-red-50 dark:bg-red-900/20' : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700' }}
                                     text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500
                                     focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition">
-                                @error('quantity')
+                                @error('qty')
                                     <p class="mt-1.5 text-xs text-red-500">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -124,7 +124,7 @@
                             </button>
 
                             <div class="flex items-center gap-3">
-                                <a href="{{ route('product.show', $product) }}"
+                                <a href="{{ route('product.show', $product->id) }}"
                                     class="px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
                                     Cancel
                                 </a>
@@ -134,7 +134,7 @@
                                 </button>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>

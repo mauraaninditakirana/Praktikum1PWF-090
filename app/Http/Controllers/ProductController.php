@@ -11,8 +11,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-
         return view('product.index', compact('products'));
+    }
+
+    public function create()
+    {
+        $users = User::orderBy('name')->get();
+        return view('product.create', compact('users'));
     }
 
     public function store(Request $request)
@@ -24,23 +29,24 @@ class ProductController extends Controller
             'user_id' => 'required|exists:users,id',
         ]);
 
-        $product = Product::create($validated);
+        Product::create($validated);
 
         return redirect()->route('product.index')->with('success', 'Product created successfully.');
-    }
-
-    public function create()
-    {
-        $users = User::orderBy('name')->get();
-
-        return view('product.create', compact('users'));
     }
 
     public function show($id)
     {
         $product = Product::findOrFail($id);
-
         return view('product.view', compact('product'));
+    }
+
+    // Perbaikan: Ganti (Product $product) menjadi ($id) agar cocok dengan {id} di web.php
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        $users = User::orderBy('name')->get();
+
+        return view('product.edit', compact('product', 'users'));
     }
 
     public function update(Request $request, $id)
@@ -59,17 +65,10 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
 
-    public function edit(Product $product)
-    {
-        $users = User::orderBy('name')->get();
-
-        return view('product.edit', compact('product', 'users'));
-    }
-
+    // Gunakan nama destroy agar standar, tapi rute kamu tetap bisa memanggilnya
     public function delete($id)
     {
         $product = Product::findOrFail($id);
-
         $product->delete();
 
         return redirect()->route('product.index')->with('success', 'Product berhasil dihapus');
