@@ -6,6 +6,8 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -22,16 +24,9 @@ class ProductController extends Controller
         return view('product.create', compact('users'));
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'qty' => 'required|integer',
-            'price' => 'required|numeric',
-            'user_id' => 'required|exists:users,id',
-        ]);
-
-        Product::create($validated);
+        $product = Product::create($request->validated());
 
         return redirect()->route('product.index')->with('success', 'Product created successfully.');
     }
@@ -53,18 +48,13 @@ class ProductController extends Controller
         return view('product.edit', compact('product', 'users'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
 
-        $validated = $request->validate([
-            'name' => 'sometimes|string|max:255',
-            'qty' => 'sometimes|integer',
-            'price' => 'sometimes|numeric',
-            'user_id' => 'sometimes|exists:users,id',
-        ]);
+        Gate::authorize('update', $product);
 
-        $product->update($validated);
+        $product->update($request->validated());
 
         return redirect()->route('product.index')->with('success', 'Product updated successfully.');
     }
