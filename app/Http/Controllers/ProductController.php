@@ -52,7 +52,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        Gate::authorize('update', $product);
+        $this->authorize('update', $product);
 
         $product->update($request->validated());
 
