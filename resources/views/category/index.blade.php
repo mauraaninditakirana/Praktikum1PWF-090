@@ -51,10 +51,8 @@
                                         <td class="px-6 py-4 font-medium text-gray-800 dark:text-gray-100">
                                             {{ $category->name }}
                                         </td>
-                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300">
-                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300">
-                                                {{ $category->products_count }} Products
-                                            </span>
+                                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300 font-medium">
+                                            {{ $category->products_count }}
                                         </td>
                                         <td class="px-6 py-4">
                                             <div class="flex items-center justify-center gap-4">
