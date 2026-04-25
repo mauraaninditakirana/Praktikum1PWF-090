@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update');
     Route::delete('/product/{id}', [ProductController::class, 'delete'])->name('product.delete');
 
-    Route::resource('category', CategoryController::class);
+    Route::resource('category', CategoryController::class)->middleware('can:admin');
+    
 });
 
 require __DIR__.'/auth.php';
