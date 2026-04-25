@@ -1,8 +1,8 @@
 ## Screenshot halaman Detail Product saat login admin.
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/58a12ccf-ee53-4bfb-85a8-020adcef3ecd" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/509721e7-65b8-4c24-bb73-041d733fd252" />
 
-## Screenshot halaman Product List saat login user.
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b7836c15-e619-4f4c-9ca9-ca3c5b9fbbb1" />
+## Screenshot halaman Product Detail saat login user.
+<img width="959" height="539" alt="image" src="https://github.com/user-attachments/assets/882951ee-6ca6-4764-95de-c48ff69c4b8c" />
 
-## Screenshot Delete
-<img width="1919" height="521" alt="image" src="https://github.com/user-attachments/assets/f16c40e3-d850-401d-af50-1842ad362882" />
+## Screenshot Validasi saat Delete
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/c9ed1be1-45c8-41de-89ee-581057e88373" />
