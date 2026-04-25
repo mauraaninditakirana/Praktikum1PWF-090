@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('kategoris', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Relasi Foreign Key ke tabel products
+            $table->string('name')->unique(); // Nama kategori harus unik
+            //$table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Relasi Foreign Key ke tabel products
             $table->timestamps();
         });
     }

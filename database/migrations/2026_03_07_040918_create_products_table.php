@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('price', 15, 2); // decimal (15 digit total, 2 digit di belakang koma)
             // Relasi Foreign Key ke tabel users
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
