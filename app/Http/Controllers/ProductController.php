@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Http\Requests\StoreProductRequest;
@@ -21,7 +22,8 @@ class ProductController extends Controller
     public function create()
     {
         $users = User::orderBy('name')->get();
-        return view('product.create', compact('users'));
+        $categories = Kategori::all();
+        return view('product.create', compact('users', 'categories'));
     }
 
     public function store(StoreProductRequest $request)
@@ -44,8 +46,9 @@ class ProductController extends Controller
         // Cek apakah user boleh edit (berdasarkan logic di Policy)
         $this->authorize('update', $product);
         $users = User::orderBy('name')->get();
+        $categories = Kategori::all();
 
-        return view('product.edit', compact('product', 'users'));
+        return view('product.edit', compact('product', 'users', 'categories'));
     }
 
     public function update(UpdateProductRequest $request, $id)
